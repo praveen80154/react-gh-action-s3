@@ -1,0 +1,21 @@
+name: Push to AWS 53
+run-name: ${{github.actor)) is running this Github Actions pipeline
+on: [push]
+jobs:
+push-to-s3:
+runs-on: ubuntu-latest
+steps:
+name: Check out repository code
+uses: actions/checkout@v4
+name: Run npm install
+run: npm install
+name: Run npm build
+runs npe run build
+name: List the directories
+rust 1s
+name: Upload to 53
+uses: jakejarvis/s3-sync-action@master
+SOURCE DIR: build/
+AWS 53 BUCKET: ${{ secrets.AWS_53_BUCKET }}
+ANS ACCESS KEY ID: $((secrets.ANS_ACCESS_KEY_ID}}
+AWS SECRET ACCESS KEY: $(( secrets.ANS_SECRET_ACCESS_KEY }}
